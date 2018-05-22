@@ -216,7 +216,7 @@ void LedControl::printNumber(int addr, int v) {
     byte start;
 
     for(i=7;i>=0;i--) {
-        digit = angka / pow(10,i);
+        digit = v / pow(10,i);
         dig = (int) digit;
         if (dig>0){
             setDigit(addr, i, dig, false);
@@ -228,7 +228,6 @@ void LedControl::printNumber(int addr, int v) {
             else
                 setChar(addr, i, ' ', false);
         }
-        angka -= dig * pow(10,i);
+        v -= dig * pow(10,i);
     }
-
 }
